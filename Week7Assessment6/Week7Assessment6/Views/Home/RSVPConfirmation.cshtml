@@ -1,0 +1,13 @@
+﻿@model Week7Assessment6.Models.Guest
+<div class="background">
+    <p>Thank you for responding @Model.FirstName!</p>
+    <br />
+    <p>Your guest details are as follows: </p>
+    <div>
+        <p>Team Member Name: @Model.FirstName @Model.LastName</p>
+        <p>Date Attending: @Model.GetPartyDate()</p>
+        <p>Email: @Model.Email</p>
+        <p id="plusone">Guest: @Model.GuestName</p>
+    </div>
+</div>
+<button type="button" onclick="location.href = '@(Url.Action("Index","Home"))'">Return</button>

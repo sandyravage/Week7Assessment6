@@ -1,0 +1,30 @@
+﻿<div class="formcontainer">
+    <form method="post" action="@Url.Action("BADConfirmation","Home")">
+        <small>We already have Kool-Aid but...</small>
+        <fieldset>
+            <legend>Bring a Dish</legend>
+            <label for="FirstName">First Name:</label>
+            <input class="input" name="FirstName" type="text" required pattern="[A-Z]\w+" />
+            <label for="LastName">Last Name:</label>
+            <input class="input" name="LastName" type="text" pattern="[A-Z]\w+" required />
+            <label for="Phone">Phone Number:</label>
+            <input class="input" name="Phone" type="tel" />
+            <label for="DishName">Dish Name:</label>
+            <input class="input" name="DishName" type="text" required />
+            <label for="DishDescription">Description:</label>
+            <textarea style="resize:none" class="textarea" name="DishDescription" rows="4" cols="70" required></textarea>
+            <label for="Option">Select Option:</label>
+            <select class="input" name="Option">
+                <option value=""></option>
+                <option value="Gluten Free">Gluten Free</option>
+                <option value="Vegetarian">Vegetarian</option>
+                <option value="Vegan">Vegan</option>
+            </select>
+            <br />
+            <br />
+            <input type="submit" value="Submit" />
+        </fieldset>
+    </form>
+    <br />
+    <button type="button" style="align-self:flex-end" onclick="location.href = '@(Url.Action("Index","Home"))'">Return</button>
+</div>
