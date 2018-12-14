@@ -84,9 +84,7 @@
 <div>
     <button type="button" onclick="location.href = '@(Url.Action("Index","Home"))'" style="margin:10px 0 0 0">Return</button>
 </div>
-
-
-@Scripts.Render(@"C:\Users\TEVERTS\source\repos\Week7Assessment6\Week7Assessment6\Scripts\scripts.js")
+<script src="~/Scripts/scripts.js"></script>
 
 @*<div class="formcontainer">
         <form id="form1" method="post" action="@Url.Action("Create","Guests")">
@@ -137,7 +135,7 @@
     </div>*@
 
 
-<script type="text/javascript">
+@*<script type="text/javascript">
     var hide1 = document.getElementById('hidden1');
     var hide2 = document.getElementById('hidden2');
     var hide3 = document.getElementById('hidden3');
@@ -172,5 +170,5 @@
             hide2.style.display = "";
         }
     }
-</script>
+</script>*@
 
