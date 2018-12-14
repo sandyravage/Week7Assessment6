@@ -1,0 +1,56 @@
+﻿@model IEnumerable<Assessment6Week7.Models.Dish>
+
+@{
+    ViewBag.Title = "Dishes";
+}
+<link href="~/Content/Site.css" rel="stylesheet" />
+<h2 class="font center2">All Dishes</h2>
+@if (Model.ToList().Count > 0)
+{
+    <table id="dishes" class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PersonName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhoneNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DishName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DishDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Option)
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PersonName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PhoneNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DishName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DishDescription)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Option)
+                </td>
+            </tr>
+        }
+    </table>
+}
+@if (Model.ToList().Count == 0)
+{
+    <p>Nothing to display!</p>
+}
+
+    <button type="button" onclick="location.href = '@(Url.Action("Index","Home"))'" style="margin:10px 0 0 0">Return</button>

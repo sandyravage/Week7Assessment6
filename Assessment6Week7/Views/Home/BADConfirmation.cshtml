@@ -1,0 +1,10 @@
+﻿@model Week7Assessment6.Models.Dish
+<div class="background" style="box-shadow:10px 10px 10px black;">
+    <p>We appreciate you bringing a dish! Your details are as follows:</p>
+    <div>
+        <p>Team Member Name: @Model.PersonName</p>
+        <p>Dish: @Model.DishName, @Model.DishDescription</p>
+        <p>Additional Details: @Model.Option</p>
+    </div>
+</div>
+<button type="button" onclick="location.href = '@(Url.Action("Index","Home"))'">Return</button>

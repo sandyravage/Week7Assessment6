@@ -1,0 +1,32 @@
+﻿@using Microsoft.AspNet.Identity;
+<div class="main center">
+    <span class="font">Welcome to the Quicken Loans 2018 Holiday Party!</span><br />
+</div>
+<div class="main center">
+    <span class="font">This year's theme is gettin' down in Jonestown!</span><br />
+</div>
+
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    {
+        @Html.AntiForgeryToken()
+        <div class="main center">
+            <div>
+                @Html.ActionLink("Bring a dish!", "Create", "Dishes", routeValues: null, htmlAttributes: new { @class = "button" })
+                @Html.ActionLink("Your Dishes", "YourDishes", "Dishes", routeValues: null, htmlAttributes: new { @class = "button" })
+                @Html.ActionLink("View all dishes", "Index", "Dishes", routeValues: null, htmlAttributes: new { @class = "button" })
+                <a  class ="button" href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
+            </div>
+        </div>
+    }
+}
+else
+{
+    <div class="main center">
+        <div>
+            @Html.ActionLink("RSVP!", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "button" })
+            @Html.ActionLink("If you've already registered, log in!", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "button" })        
+        </div>
+    </div>
+}

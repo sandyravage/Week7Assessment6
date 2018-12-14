@@ -1,0 +1,105 @@
+﻿@model Assessment6Week7.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Register";
+}
+
+    <div class="formcontainer" style="box-shadow:10px 10px 10px black;">
+        @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+        {
+            <fieldset>
+                <legend>RSVP!</legend>
+                @Html.AntiForgeryToken()
+
+                <div class="form-horizontal">
+                    @Html.ValidationSummary(true, "", new { @class = "danger" })
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { style = "width:100%; margin:4px;" } })
+                            @Html.ValidationMessageFor(model => model.FirstName, "", new { style = "font-size:10px; color:red;" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { style = "width:100%; margin:4px;" } })
+                            @Html.ValidationMessageFor(model => model.LastName, "", new { style = "font-size:10px; color:red;" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { style = "width:100%; margin:4px;" } })
+                            @Html.ValidationMessageFor(model => model.Email, "", new { style = "font-size:10px; color:red;" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-10">
+                            @Html.PasswordFor(m => m.Password, new { style = "width:100%; margin:4px;" })
+                            @Html.ValidationMessageFor(model => model.Password, "", new { style = "font-size:10px; color:red;" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-10">
+                            @Html.PasswordFor(m => m.ConfirmPassword, new { style = "width:100%; margin:4px;" })
+                            @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { style = "font-size:10px; color:red;" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Attending, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.RadioButtonFor(m => m.Attending, "Yes", new { id = "yes1" })Yes
+                            @Html.RadioButtonFor(m => m.Attending, "No", new { id = "no1" }) No
+                            @Html.ValidationMessageFor(model => model.Attending, "", new { style = "font-size:10px; color:red;" })
+                        </div>
+                    </div>
+
+                    <div id="hidden1">
+                        @Html.LabelFor(model => model.AttendanceDate, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.AttendanceDate, new { htmlAttributes = new { type = "date", value = "2018-12-15", min = "2018-12-15", max = "2018-12-18", step = "3", style = "margin:5px" } })
+                            @Html.ValidationMessageFor(model => model.AttendanceDate, "", new { style = "font-size:10px; color:red;" })
+                        </div>
+                    </div>
+
+                    <div id="hidden2">
+                        @Html.LabelFor(model => model.Guest1, htmlAttributes: new { })
+                        <div class="col-md-10">
+                            @Html.RadioButtonFor(m => m.Guest1, "Yes", new { style = "margin:5px;", id = "yes2" })Yes
+                            @Html.RadioButtonFor(m => m.Guest1, "No", new { style = "margin:5px;", id = "no2" }) No
+                            @Html.ValidationMessageFor(model => model.Guest1, "", new { style = "font-size:10px; color:red;" })
+                        </div>
+                    </div>
+
+                    <div id="hidden3">
+                        @Html.LabelFor(model => model.GuestName, htmlAttributes: new { })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.GuestName, new { htmlAttributes = new { style = "width:100%; margin:4px;" } })
+                            @Html.ValidationMessageFor(model => model.GuestName, "", new { style = "font-size:10px; color:red;" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="RSVP" class="btn btn-default" style="margin:5px;" />
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        }
+    </div>
+
+<div>
+    <button type="button" onclick="location.href = '@(Url.Action("Index","Home"))'" style="margin:10px 0 0 0">Return</button>
+</div>
+
+<script src="~/Scripts/scripts.js"></script>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

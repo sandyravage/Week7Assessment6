@@ -1,0 +1,77 @@
+﻿@model Assessment6Week7.Models.Dish
+@using Assessment6Week7.Models;
+@{
+    ViewBag.Title = "Bring a Dish";
+}
+
+<div class="formcontainer" style="box-shadow:10px 10px 10px black;">
+    @using (Html.BeginForm())
+    {
+        <small>We already have Kool-Aid but...</small>
+
+        <fieldset>
+            <legend>Bring a Dish</legend>
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+
+                @*@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(model => model.PersonName, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.PersonName, new { htmlAttributes = new { style = "width:100%; margin:4px;" } })
+                        @Html.ValidationMessageFor(model => model.PersonName, "", new { style = "font-size:10px; color:red;" })
+                    </div>
+                </div>*@
+
+                @Html.HiddenFor(model => model.PersonName)
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.PhoneNumber, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { style = "width:100%; margin:4px;" } })
+                        @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { style = "font-size:10px; color:red;" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.DishName, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.DishName, new { htmlAttributes = new { style = "width:100%; margin:4px;" } })
+                        @Html.ValidationMessageFor(model => model.DishName, "", new { style = "font-size:10px; color:red;" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.DishDescription, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.TextAreaFor(model => model.DishDescription, new { style = "width:100%; margin:4px; resize:none", rows = "4", cols = "70" })
+                        @Html.ValidationMessageFor(model => model.DishDescription, "", new { style = "font-size:10px; color:red;" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Option, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownListFor(model => model.Option, Dish.listItems, new { style = "width:100%" })
+                        @Html.ValidationMessageFor(model => model.Option, "", new { style = "font-size:10px; color:red;" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Create" class="btn btn-default" style="margin: 10px 0 0 0" />
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+    }
+</div>
+<div>
+    <button type="button" style="align-self:flex-end" onclick="location.href = '@(Url.Action("Index","Home"))'" style="margin: 10px 0 0 0">Return</button>
+
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
