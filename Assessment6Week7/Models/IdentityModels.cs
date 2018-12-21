@@ -16,13 +16,20 @@ namespace Assessment6Week7.Models
             var userIdentity = await manager.CreateIdentityAsync(this, DefaultAuthenticationTypes.ApplicationCookie);
             return userIdentity;
         }
-
+        [Display(Name = "First Name")]
         public string FirstName { get; set; } 
+        [Display(Name = "Last Name")]
         public string LastName { get; set; }
+        [Display(Name = "Attendance Date")]
         public DateTime? AttendanceDate { get; set; }
+        [Display(Name = "Bringing a guest?")]
         public string Guest1 { get; set; }
+        [Display(Name = "Attending?")]
         public string Attending { get; set; }
+        [Display(Name = "Guest Name")]
         public string GuestName { get; set; }
+        [Display(Name = "Character Name")]
+        public string CharacterName { get; set; }
 
     }
 

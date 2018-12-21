@@ -151,13 +151,20 @@ namespace Assessment6Week7.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email, Attending = model.Attending, AttendanceDate = model.AttendanceDate, FirstName = model.FirstName, LastName = model.LastName, Guest1 = model.Guest1, GuestName = model.GuestName };
+                ApplicationUser user = new ApplicationUser { UserName = model.Email, Email = model.Email, Attending = model.Attending, AttendanceDate = model.AttendanceDate, FirstName = model.FirstName, LastName = model.LastName, Guest1 = model.Guest1, GuestName = model.GuestName, CharacterName = model.CharacterName };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
+                    if(model.Attending == "Yes")
+                    {
+                        return RedirectToAction("RSVPConfirmation", "Home", model);
+                    }
+                    else
+                    {
+                        return RedirectToAction("RSVPNotAttending",  "Home", model);
+                    }
                     
-                    return RedirectToAction("Index", "Home");
                 }
                 AddErrors(result);
             }
@@ -416,7 +423,12 @@ namespace Assessment6Week7.Controllers
 
             base.Dispose(disposing);
         }
-
+        
+        public ActionResult Guests()
+        {
+            ApplicationDbContext db = new ApplicationDbContext();
+            return View("Guests", db.Users.ToList());
+        }
         #region Helpers
         // Used for XSRF protection when adding external logins
         private const string XsrfKey = "XsrfId";

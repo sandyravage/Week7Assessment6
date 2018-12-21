@@ -2,6 +2,7 @@
 @{
     ViewBag.Title = "Register";
 }
+@using Assessment6Week7.Models
 
     <div class="formcontainer" style="box-shadow:10px 10px 10px black;">
         @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
@@ -81,6 +82,14 @@
                         @Html.LabelFor(model => model.GuestName, htmlAttributes: new { })
                         <div class="col-md-10">
                             @Html.EditorFor(model => model.GuestName, new { htmlAttributes = new { style = "width:100%; margin:4px;" } })
+                            @Html.ValidationMessageFor(model => model.GuestName, "", new { style = "font-size:10px; color:red;" })
+                        </div>
+                    </div>
+
+                    <div>
+                        @Html.LabelFor(model => model.CharacterName, htmlAttributes: new { })
+                        <div class="col-md-10">
+                            @Html.DropDownListFor(model => model.CharacterName, DropDownGetter.GetDropDown(), new { style = "width:100%; margin:4px;" })
                             @Html.ValidationMessageFor(model => model.GuestName, "", new { style = "font-size:10px; color:red;" })
                         </div>
                     </div>

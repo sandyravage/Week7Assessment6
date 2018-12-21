@@ -114,3 +114,4 @@ C:\Users\TEVERTS\source\repos\Assessment6Week7\Assessment6Week7\obj\Debug\Assess
 C:\Users\TEVERTS\source\repos\Assessment6Week7\Assessment6Week7\obj\Debug\Assessment6Week7.Migrations.Attending.resources
 C:\Users\TEVERTS\source\repos\Assessment6Week7\Assessment6Week7\obj\Debug\Assessment6Week7.Migrations.GuestName.resources
 C:\Users\TEVERTS\source\repos\Assessment6Week7\Assessment6Week7\obj\Debug\Assessment6Week7.Migrations.AttendanceDate.resources
+C:\Users\TEVERTS\source\repos\Assessment6Week7\Assessment6Week7\obj\Debug\Assessment6Week7.Migrations.CharacterName.resources

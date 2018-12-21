@@ -11,30 +11,14 @@ namespace Assessment6Week7.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    using System.Web.Mvc;
-
+    
     public partial class Dish
     {
-        [Key]
         public int DishID { get; set; }
-        [Display(Name = "Dish Bringer")]
         public string PersonName { get; set; }
-        [Required(ErrorMessage = "Please enter a phone number we can reach you at"), Display(Name = "Phone Number"), DataType(DataType.PhoneNumber)]
         public string PhoneNumber { get; set; }
-        [Required(ErrorMessage = "Please enter a name for your dish"), Display(Name = "Name of dish")]
         public string DishName { get; set; }
-        [Required(ErrorMessage = "Please enter a brief description of your dish"), Display(Name = "Description of dish"), DataType(DataType.MultilineText)]
         public string DishDescription { get; set; }
-        [Required(ErrorMessage = "Please indicate whether your dish will be vegetarian, vegan, or gluten free"), Display(Name = "Additional Options")]
         public string Option { get; set; }
-
-
-        public static List<SelectListItem> listItems = new List<SelectListItem> {
-          new SelectListItem { Text = "", Value="" },
-          new SelectListItem { Text = "Vegetarian", Value="Vegatarian" },
-          new SelectListItem { Text = "Vegan", Value="Vegan" },
-          new SelectListItem { Text = "Gluten Free", Value="Gluten Free" }
-            };
     }
 }

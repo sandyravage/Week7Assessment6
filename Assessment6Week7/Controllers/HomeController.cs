@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Assessment6Week7.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,6 +14,16 @@ namespace Assessment6Week7.Controllers
         public ActionResult Index()
         {
             return View();
+        }
+
+        public ActionResult RSVPConfirmation(ApplicationUser model)
+        {
+            return View(model);
+        }
+
+        public ActionResult RSVPNotAttending(ApplicationUser model)
+        {
+            return View(model);
         }
     }
 }

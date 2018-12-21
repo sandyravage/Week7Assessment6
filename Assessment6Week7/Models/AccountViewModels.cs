@@ -93,6 +93,8 @@ namespace Assessment6Week7.Models
         public string Attending { get; set; }
         [Display(Name = "Guest Name")]
         public string GuestName { get; set; }
+        [Required(ErrorMessage = "Please select a character"), Display(Name = "Character Name")]
+        public string CharacterName { get; set; }
     }
 
     public class ResetPasswordViewModel

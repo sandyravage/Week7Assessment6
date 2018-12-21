@@ -1,0 +1,89 @@
+﻿@model IEnumerable<Assessment6Week7.Models.ApplicationUser>
+
+@{
+    ViewBag.Title = "Guests";
+}
+@using Assessment6Week7.Models
+@{
+    CharacterDbContext db = new CharacterDbContext();
+}
+<link href="~/Content/Site.css" rel="stylesheet" />
+<h2 style="text-align:center; color:white;" class="font">All Guests</h2>
+
+@if (Model.ToList().Count != 0)
+{
+    <table class="table" id="dishes">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AttendanceDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Guest1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Attending)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GuestName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhoneNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CharacterName)
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AttendanceDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Guest1)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Attending)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GuestName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PhoneNumber)
+                </td>
+                <td>
+                    @{
+                        Character search = new Character();
+                        search = db.Characters.Find(int.Parse(item.CharacterName));
+                    }
+                    @Html.ActionLink(search.name, "Details", "Characters", new { id = int.Parse(item.CharacterName) }, new { })
+                </td>
+            </tr>
+        }
+
+    </table>
+}
+else
+{
+    <p style="text-align: center; color:white;">Nobody's coming yet!</p>
+}
+

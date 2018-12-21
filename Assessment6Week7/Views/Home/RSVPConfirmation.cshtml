@@ -1,4 +1,4 @@
-﻿@model Week7Assessment6.Models.Guest
+﻿@model Assessment6Week7.Models.ApplicationUser
 <div class="background" style="padding:10px; box-shadow:10px 10px 10px black;">
     <p>Thank you for responding @Model.FirstName!</p>
     <br />
@@ -8,6 +8,7 @@
         <p>Date Attending: @Model.AttendanceDate</p>
         <p>Email: @Model.EmailAddress</p>
         <p id="Guest1">Guest: @Model.GuestName</p>
+        <p>Character: @Model.CharacterName</p>
     </div>
 </div>
 <button type="button" onclick="location.href = '@(Url.Action("Index","Home"))'" style="margin:10px 0 0 0">Return</button>

@@ -1,4 +1,7 @@
 ﻿@using Microsoft.AspNet.Identity;
+@using Assessment6Week7.Models;
+<br />
+<br />
 <div class="main center">
     <span class="font">Welcome to the Quicken Loans 2018 Holiday Party!</span><br />
 </div>
@@ -11,13 +14,26 @@
     using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
     {
         @Html.AntiForgeryToken()
-        <div class="main center">
-            <div>
-                @Html.ActionLink("Bring a dish!", "Create", "Dishes", routeValues: null, htmlAttributes: new { @class = "button" })
-                @Html.ActionLink("Your Dishes", "YourDishes", "Dishes", routeValues: null, htmlAttributes: new { @class = "button" })
-                @Html.ActionLink("View all dishes", "Index", "Dishes", routeValues: null, htmlAttributes: new { @class = "button" })
-                <a  class ="button" href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
-            </div>
+        <div class="main center" style="justify-content:center; display:flex; flex-direction:column;">
+                <div style="align-self:center;">
+                    @Html.ActionLink("Bring a dish!", "Create", "Dishes", routeValues: null, htmlAttributes: new { @class = "button" })
+                    @Html.ActionLink("Your dishes", "YourDishes", "Dishes", routeValues: null, htmlAttributes: new { @class = "button" })
+                </div>
+                <br />
+                <br />
+                <br />
+                <div style="align-self:center;">
+                    @Html.ActionLink("View all dishes", "Index", "Dishes", routeValues: null, htmlAttributes: new { @class = "button" })
+                    @Html.ActionLink("View all guests", "Guests", "Account", routeValues: null, htmlAttributes: new { @class = "button" })
+                </div>
+                <br />
+                <br />
+                <br />
+                <p class="font" style="font-size:18px; text-align:center; color:red;">Chuck Norris Joke of the Load: <strong>@NorrisCaller.GetNorris().value</strong></p>
+                <br />
+                <br />
+                <br />
+                <a class="button" style="width:10%; align-self:center;"href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
         </div>
     }
 }
